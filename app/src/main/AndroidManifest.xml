@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="pl.cyfrogen.budget">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:name=".FirebaseHandler"
+        android:allowBackup="true"
+        android:label="@string/MyPocket"
+        android:icon="@mipmap/ic_launcher"
+        tools:replace="android:label"
+        android:supportsRtl="true"
+        android:theme="@style/MaterialTheme"
+        >
+        <activity
+            android:name=".ui.splash_screen.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.signin.SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.add_entry.AddWalletEntryActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.main.MainActivity" />
+        </activity>
+        <activity android:name=".ui.options.OptionsActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.main.MainActivity" />
+        </activity>
+        <activity android:name=".ui.main.history.edit_entry.EditWalletEntryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.main.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.options.categories.CustomCategoriesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.options.categories.AddCustomCategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.options.categories.EditCustomCategoryActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".MyFirebaseInstanceidService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
